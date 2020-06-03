@@ -8,10 +8,12 @@ export const main = handler(async (event, context) => {
   const description = "Scratch charge";
 
   // Load our secret key from the  environment variables
-  const ProxyAgent = require('https-proxy-agent');
-  const stripe = Stripe(process.env.stripeSecretKey, {
-      httpAgent: new ProxyAgent(process.env.http_proxy)
-  });
+  //const ProxyAgent = require('https-proxy-agent');
+  //const stripe = Stripe(process.env.stripeSecretKey, {
+  //    httpAgent: new ProxyAgent(process.env.http_proxy)
+  //});
+
+  const stripe = Stripe(process.env.stripeSecretKey);
 
   await stripe.charges.create({
     source,
